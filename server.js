@@ -14,12 +14,13 @@ apiTeam(app, db);
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
+app.use('/driver', apiDriver);
+
 app.get('*', (req, res) => res.status(200).send({
     message: 'Welcome to the beginning of nothingness.',
 }));
 
 app.use(serveStatic(path.join(__dirname, '/dist')));
-app.use()
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 80;
 
 app.listen(port);
