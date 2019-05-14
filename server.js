@@ -2,9 +2,9 @@ const express = require("express");
 const serveStatic = require("serve-static")
 const path = require('path');
 
-const db = require("./models");
-const apiDriver = require("./app/api/driver");
-const apiTeam = require("./app/api/team");
+const db = require("/models");
+const apiDriver = require("/app/api/driver");
+const apiTeam = require("/app/api/team");
 
 const app = express();
 app.use(bodyParser.json());
