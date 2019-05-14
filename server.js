@@ -19,6 +19,7 @@ app.get('*', (req, res) => res.status(200).send({
 }));
 
 app.use(serveStatic(path.join(__dirname, '/dist')));
-const port = process.env.PORT || 80;
+app.use()
+const port = process.env.PORT || 8080;
 
 app.listen(port);
