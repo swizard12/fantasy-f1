@@ -19,9 +19,11 @@ app.get('/driver', function(req, res) {
 })
 
 app.get('/teams', function (req, res) {
-    var t = F1.GetTeams()
-    res.send(t)
+    F1.GetTeams().then(function(rows) {
+        res.send(rows)
+    })
 })
+
 app.use(serveStatic(path.join(__dirname, 'dist')));
 
 const port = process.env.PORT || 80;
