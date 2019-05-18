@@ -6,7 +6,7 @@
       check out the
       <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
     </p>
-    <a href="http://wi-fantasy-f1.herokuapp.com/get">Say Hello</a>
+    <a href="http://wi-fantasy-f1.herokuapp.com/sayhello">Say Hello</a>
     <h3>Installed CLI Plugins</h3>
     <ul>
       <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>
