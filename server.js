@@ -23,7 +23,7 @@ app.get('/teams', function (req, res) {
         res.send(rows)
     }).catch((err) => setImmediate(() => { res.send("Error") }))
 })
-gf
+
 app.use(serveStatic(path.join(__dirname, 'dist')));
 
 const port = process.env.PORT || 80;
