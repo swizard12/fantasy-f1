@@ -21,9 +21,9 @@ app.get('/driver', function(req, res) {
 app.get('/teams', function (req, res) {
     F1.GetTeams().then(function(rows) {
         res.send(rows)
-    })
+    }).catch((err) => setImmediate(() => { res.send("Error") }))
 })
-
+gf
 app.use(serveStatic(path.join(__dirname, 'dist')));
 
 const port = process.env.PORT || 80;
