@@ -19,7 +19,8 @@ app.get('/driver', function(req, res) {
 })
 
 app.get('/teams', function (req, res) {
-    res.send(F1.GetTeams().tostring())
+    var t = F1.GetTeams()
+    res.send(t)
 })
 app.use(serveStatic(path.join(__dirname, 'dist')));
 
