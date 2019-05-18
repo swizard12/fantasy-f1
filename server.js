@@ -1,7 +1,7 @@
 const express = require('express');
 
-var f1 = require ('./api/f1');
-var d1 = new f1.Driver(1, 'Louis', 120);
+var Driver = require ('./api/f1');
+var d1 = new Driver(1, 'Louis', 120);
 
 const serveStatic = require("serve-static");
 
