@@ -6,8 +6,8 @@ const path = require('path');
 
 const app = express();
 
-app.get('/get', function (req, res) {
-    res.send('GET request to the homepage')
+app.get('/sayhello', function (req, res) {
+    res.send("It's a natnatnatnatnatnatnatnatnat")
 })
 
 app.use(serveStatic(path.join(__dirname, 'dist')));
