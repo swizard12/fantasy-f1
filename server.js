@@ -1,7 +1,8 @@
 const express = require('express');
 
-var Driver = require ('./api/f1');
-var d1 = new Driver(1, 'Louis', 120);
+var F1 = require ('./api/f1');
+
+var d1 = new F1.Driver(1, 'Louis', 120);
 
 const serveStatic = require("serve-static");
 
@@ -17,6 +18,9 @@ app.get('/driver', function(req, res) {
     res.send(d1)
 })
 
+app.get('/teams', function (req, res) {
+    res.send(F1.GetTeams())
+})
 app.use(serveStatic(path.join(__dirname, 'dist')));
 
 const port = process.env.PORT || 80;
