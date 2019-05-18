@@ -14,7 +14,7 @@ app.get('/sayhello', function (req, res) {
 })
 
 app.get('/driver', function(req, res) {
-    res.send(d1.json())
+    res.send(d1)
 })
 
 app.use(serveStatic(path.join(__dirname, 'dist')));
