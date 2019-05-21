@@ -20,7 +20,9 @@ app.get('/teams', function (req, res) {
 })
 
 app.get('/drivers', function(res, req) {
-    ergast.GetDrivers().then(data => res.send(data)).catch((err) => setImmediate(() => { res.send("Error")}))
+    ergast.GetDrivers().then(function(data) {
+        res.send(data)
+    }).catch((err) => setImmediate(() => { res.send("Error")}))
 })
 
 app.use(serveStatic(path.join(__dirname, 'dist')));
