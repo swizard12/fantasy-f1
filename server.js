@@ -1,8 +1,7 @@
 const express = require('express');
 
 var F1 = require ('./api/f1');
-
-var d1 = new F1.Driver(1, 'Louis', 120);
+var ergast = require ('./api/ergast');
 
 const serveStatic = require("serve-static");
 
@@ -14,14 +13,14 @@ app.get('/sayhello', function (req, res) {
     res.send("Hello Pip")
 })
 
-app.get('/driver', function(req, res) {
-    res.send(d1)
-})
-
 app.get('/teams', function (req, res) {
     F1.GetTeams().then(function(rows) {
         res.send(rows)
     }).catch((err) => setImmediate(() => { res.send("Error") }))
+})
+
+app.get('/drivers', function(res, req) {
+    ergast.GetDrivers().then(data => console.log(data)).catch((err) => setImmediate(() => { res.send("Error")}))
 })
 
 app.use(serveStatic(path.join(__dirname, 'dist')));
