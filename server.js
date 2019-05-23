@@ -16,13 +16,13 @@ app.get('/sayhello', function (req, res) {
 app.get('/teams', function (req, res) {
     F1.GetTeams().then(function(rows) {
         res.send(rows)
-    }).catch((err) => setImmediate(() => { res.send("Error") }))
+    }).catch((err) => setImmediate(() => { res.send(err) }))
 })
 
-app.get('/drivers', function(res, req) {
+app.get('/drivers', function(res) {
     ergast.GetDrivers().then(function(data) {
         res.send(data)
-    }).catch((err) => setImmediate(() => { res.send("Error")}))
+    });
 })
 
 app.use(serveStatic(path.join(__dirname, 'dist')));
