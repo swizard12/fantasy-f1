@@ -1,7 +1,15 @@
-const fetch = require('node-fetch')
+var rest = require('restler');
 
-var GetDrivers = function() {
-    return fetch("http://ergast.com/api/f1/2019/drivers.json").then(data => data.json());
+this.GetDrivers = function(year, callback) {
+    var url = "http://ergast.com/api/f1/" + year + "/drivers.json";
+    rest.get(url).on('complete', function(response) {
+        if (response instanceof Error) {
+            console.log(response);
+        }
+        else {
+            return response["MRData"]["DriverTable"]["Drivers"]
+        }
+    });
 }
 
 module.exports = {
