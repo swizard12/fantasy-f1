@@ -1,5 +1,5 @@
 const express = require('express');
-const api_helper = req('./api/helper');
+const api_helper = require('./api/helper');
 var F1 = require ('./api/f1');
 var ergast = require ('./api/ergast');
 
