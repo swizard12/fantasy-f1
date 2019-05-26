@@ -12,7 +12,7 @@ app.get('/sayhello', function (req, res) {
 })
 
 app.get('/driver', function(req, res) {
-    api_helper.API_call('https://jsonplaceholder.typicode.com/todos/1')
+    api_helper.API_call('http://ergast.com/api/f1/2010/drivers.json')
     .then(response => {
         res(json.response)
     })
