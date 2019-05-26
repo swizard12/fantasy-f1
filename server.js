@@ -14,7 +14,7 @@ app.get('/sayhello', function (req, res) {
 app.get('/driver', function(req, res) {
     api_helper.API_call('http://ergast.com/api/f1/2010/drivers.json')
     .then(response => {
-        res(json.response)
+        res.send(response.json())
     })
     .catch(error => {
         res.send(error)
