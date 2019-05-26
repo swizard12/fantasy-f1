@@ -1,7 +1,5 @@
 const express = require('express');
 const api_helper = require('./api/helper');
-var F1 = require ('./api/f1');
-var ergast = require ('./api/ergast');
 
 const serveStatic = require("serve-static");
 
@@ -21,18 +19,6 @@ app.get('/driver', function(req, res) {
     .catch(error => {
         res.send(error)
     })
-})
-
-app.get('/teams', function (req, res) {
-    F1.GetTeams().then(function(rows) {
-        res.send(rows)
-    }).catch((err) => setImmediate(() => { res.send(err) }))
-})
-
-app.get('/drivers', function(res) {
-    ergast.GetDrivers().then(function(data) {
-        res.send(data)
-    });
 })
 
 app.use(serveStatic(path.join(__dirname, 'dist')));
