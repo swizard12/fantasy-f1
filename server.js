@@ -1,7 +1,7 @@
 const express = require('express');
-const api_helper = require('./api/helper');
-
-const serveStatic = require("serve-static");
+const serveStatic = require("serve-static")
+const asyncHandler = require('express-async-handler')
+const nFetch = require ('node-fetch')
 
 const path = require('path');
 
@@ -11,15 +11,11 @@ app.get('/sayhello', function (req, res) {
     res.send("It's a natnatnatnatnatnatnatnatnat")
 })
 
-app.get('/driver', async function(req, res) {
-    await api_helper.API_call('http://ergast.com/api/f1/2010/drivers.json')
-    .then(response => {
-        res.send(response.json())
-    })
-    .catch(error => {
-        res.send(error)
-    })
-})
+app.get('/driver',asyncHandler(async (req, res, next) => {
+    const response = await nFetch("http://ergast.com/api/f1/2010/drivers.json")
+    const json = await response.json()
+    res.send(json)
+}))
 
 app.use(serveStatic(path.join(__dirname, 'dist')));
 
