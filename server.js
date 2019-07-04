@@ -11,7 +11,7 @@ app.get('/sayhello', function (req, res) {
     res.send("It's a natnatnatnatnatnatnatnatnat")
 })
 
-app.get('/driver', function(req, res) {
+app.get('/driver', async function(req, res) {
     await api_helper.API_call('http://ergast.com/api/f1/2010/drivers.json')
     .then(response => {
         res.send(response.json())
